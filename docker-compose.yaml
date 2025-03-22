@@ -1,0 +1,14 @@
+services:
+  postgresql:
+    restart: always
+    container_name: sft-postgresql
+    image: postgres:17.4-alpine
+    volumes:
+      - sft_postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env.postgresql
+    ports:
+      - "5412:5432"
+
+volumes:
+  sft_postgres_data:
